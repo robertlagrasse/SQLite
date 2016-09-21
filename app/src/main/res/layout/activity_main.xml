@@ -22,11 +22,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/statusText"
         android:layout_margin="4dp"/>
+    <EditText
+        android:id="@+id/userEntryText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userEntryText"
+        android:layout_margin="4dp"/>
     <TextView
         android:id="@+id/resultsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/userEntryText"
+        android:layout_below="@id/userEntryText2"
         android:layout_margin="4dp"
         android:text="Some Text" />
     <Button

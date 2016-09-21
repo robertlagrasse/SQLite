@@ -12,6 +12,7 @@ package com.example.android.sqlite;
 
 public class MainActivity extends AppCompatActivity {
     EditText userEntryText;
+    EditText userEntryText2;
     TextView resultsText;
     myDBManager dbManager;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Grab references to UI elements
         userEntryText = (EditText) findViewById(R.id.userEntryText);
+        userEntryText2 = (EditText) findViewById(R.id.userEntryText2);
         resultsText = (TextView) findViewById(R.id.resultsText);
 
         // dbManager reference
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void addButtonClick(View view) {
         // Create a new product based on what's in the UI
         Products product = new Products(userEntryText.getText().toString());
+        product.set_color(userEntryText2.getText().toString());
         // Send that product object to the dbManager so the item can be added.
         dbManager.addItem(product);
         // See what's in the database

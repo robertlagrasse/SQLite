@@ -7,6 +7,7 @@ public class Products {
 
     private int _id;
     private String _productname;
+    private String _color;
 
     public Products() {
     }
@@ -29,6 +30,14 @@ public class Products {
 
     public void set_productname(String _productname) {
         this._productname = _productname;
+    }
+
+    public String get_color() {
+        return _color;
+    }
+
+    public void set_color(String _color) {
+        this._color = _color;
     }
 }
 

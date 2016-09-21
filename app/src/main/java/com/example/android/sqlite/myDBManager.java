@@ -13,13 +13,14 @@ import android.util.Log;
  */
 public class myDBManager extends SQLiteOpenHelper{
     // Define some global database stuff
-    private static final int        DATABASE_VERSION    = 1;
+    private static final int        DATABASE_VERSION    = 2;
     private static final String     DATABASE_NAME       = "database";
 
     // Define a table and some columns
     private static final String     TABLE_NAME          = "products";
     private static final String     COLUMN_ID           = "_id";
     private static final String     COLUMN_PRODUCT_NAME = "productname";
+    private static final String     COLUMN_COLOR        = "color";
 
     // think about cleaning this up in terms of this constructor.
     // super already takes care of what should be passed in.
@@ -34,8 +35,9 @@ public class myDBManager extends SQLiteOpenHelper{
         // put together a sql string to create the table
         String query =  "CREATE TABLE "         + TABLE_NAME + "(" +
                         COLUMN_ID               + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_PRODUCT_NAME     + " VARCHAR(255) " +
-                ");";
+                        COLUMN_PRODUCT_NAME     + " VARCHAR(255), " +
+                        COLUMN_COLOR            + " VARCHAR(255) " +
+                        ");";
         // execute the sql command
         db.execSQL(query);
     }
@@ -55,6 +57,7 @@ public class myDBManager extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         // Associate column name with value
         values.put(COLUMN_PRODUCT_NAME, product.get_productname());
+        values.put(COLUMN_COLOR, product.get_color());
 
         // insert value into table at the appropriate location
         db.insert(TABLE_NAME, null, values);
@@ -93,6 +96,8 @@ public class myDBManager extends SQLiteOpenHelper{
         while(!c.isAfterLast()){
             if(c.getString(c.getColumnIndex(COLUMN_ID))!=null){
                 dbString += c.getString(c.getColumnIndex(COLUMN_ID));
+                dbString += " ";
+                dbString += c.getString(c.getColumnIndex(COLUMN_COLOR));
                 dbString += " ";
                 dbString += c.getString(c.getColumnIndex(COLUMN_PRODUCT_NAME));
                 dbString += "\n";
