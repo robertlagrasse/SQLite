@@ -22,12 +22,11 @@ public class myDBManager extends SQLiteOpenHelper{
     private static final String     COLUMN_PRODUCT_NAME = "productname";
     private static final String     COLUMN_COLOR        = "color";
 
-    // think about cleaning this up in terms of this constructor.
-    // super already takes care of what should be passed in.
-    // the constructor here could be myDBManager(Context context)
-    public myDBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    // Cleaned up this constructor. The only thing that got
+    // used in the original call was context, so here we are.
+    public myDBManager(Context context) {
         //super(context, name, factory, version); // original super.
-        super(context, DATABASE_NAME, factory , DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override

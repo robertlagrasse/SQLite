@@ -1,12 +1,10 @@
 package com.example.android.sqlite;
  import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
- import android.util.Log;
+ import android.support.v7.app.AppCompatActivity;
  import android.view.View;
-        import android.widget.EditText;
-        import android.widget.TextView;
+ import android.widget.EditText;
+ import android.widget.TextView;
 
-        import com.example.android.sqlite.R;
 
 // This program exists solely to generate a database and play with it.
 
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         resultsText = (TextView) findViewById(R.id.resultsText);
 
         // dbManager reference
-        dbManager = new myDBManager(this, null, null, 1);
+        dbManager = new myDBManager(this);
 
         // Let's see what's in the database.
         printDatabase();
@@ -40,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         resultsText.setText(dbString);
         // Set the UI up for fresh input
         userEntryText.setText("");
+        userEntryText2.setText("");
     }
 
     public void addButtonClick(View view) {
